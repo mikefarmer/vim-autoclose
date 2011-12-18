@@ -317,7 +317,7 @@ endfunction
 
 " this function is made visible for the sake of users
 function! AutoClose#DefaultPairs()
-    return AutoClose#ParsePairs("() {} [] <> «» ` \" '")
+    return AutoClose#ParsePairs("() {} [] <> ` \" '")
 endfunction
 
 function! AutoClose#DefaultPairsModified(pairsToAdd,openersToRemove)
@@ -454,7 +454,7 @@ autocmd BufNewFile,BufRead,BufEnter * if !<SID>IsLoadedOnBuffer() | call <SID>Cr
 autocmd InsertEnter * call <SID>EmptyBuffer()
 autocmd BufEnter * if mode() == 'i' | call <SID>EmptyBuffer() | endif
 autocmd FileType ruby
-            \ let b:AutoClosePairs = AutoClose#DefaultPairsModified("|", "")
+            \ let b:AutoClosePairs = AutoClose#DefaultPairsModified("|", "<")
 autocmd FileType typoscript,zsh,sh
             \ let b:AutoClosePairs = AutoClose#DefaultPairsModified("", "<")
 augroup END
