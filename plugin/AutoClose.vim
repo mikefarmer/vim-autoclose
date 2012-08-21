@@ -463,4 +463,7 @@ augroup END
 command! AutoCloseOn :let b:AutoCloseOn = 1
 command! AutoCloseOff :let b:AutoCloseOn = 0
 command! AutoCloseToggle :call s:ToggleAutoClose()
+command! AutoCloseQuotesOnly :let b:AutoClosePairs = AutoClose#ParsePairs("` \" '")
+command! AutoCloseNormal :let b:AutoClosePairs = AutoClose#DefaultPairs()
+
 " vim:sw=4:sts=4:
